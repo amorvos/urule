@@ -4,27 +4,31 @@
 import BaseTool from './BaseTool.js';
 import StartNode from './StartNode.js';
 
-export default class StartTool extends BaseTool{
-    getType(){
+export default class StartTool extends BaseTool {
+    getType() {
         return '开始';
     }
-    getIcon(){
+
+    getIcon() {
         return `<i class="rf rf-start" style="color:#737383"></i>`
     }
-    newNode(){
+
+    newNode() {
         return new StartNode();
     }
-    getConfigs(){
+
+    getConfigs() {
         return {
-            in:0,
-            out:1,
-            single:true
+            in: 0,
+            out: 1,
+            single: true
         };
     }
-    getPropertiesProducer(){
-        const _this=this;
-        return function (){
-            const g=$(`<div></div>`);
+
+    getPropertiesProducer() {
+        const _this = this;
+        return function () {
+            const g = $(`<div></div>`);
             g.append(_this.getCommonProperties(this));
             return g;
         }

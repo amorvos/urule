@@ -6,7 +6,7 @@ import '../css/iconfont.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore,applyMiddleware} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import reducer from './reducer.js';
@@ -14,9 +14,9 @@ import ParameterEditor from './components/ParameterEditor.jsx';
 import * as action from './action.js';
 import {getParameter} from '../Utils.js';
 
-$(document).ready(function(){
-    const store=createStore(reducer,applyMiddleware(thunk));
-    const file=getParameter("file");
+$(document).ready(function () {
+    const store = createStore(reducer, applyMiddleware(thunk));
+    const file = getParameter("file");
     store.dispatch(action.loadData(file));
     ReactDOM.render(
         <Provider store={store}>

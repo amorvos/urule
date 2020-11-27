@@ -1,12 +1,12 @@
 /*******************************************************************************
  * Copyright 2017 Bstek
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License.  You may obtain a copy
  * of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
@@ -36,6 +36,7 @@ public class PostgreSQLPersistenceManager extends DbPersistenceManager {
     /**
      * {@inheritDoc}
      */
+    @Override
     public void init(PMContext context) throws Exception {
         // init default values
         if (getDriver() == null) {
@@ -49,9 +50,11 @@ public class PostgreSQLPersistenceManager extends DbPersistenceManager {
 
     /**
      * Returns a new instance of a DbNameIndex.
+     *
      * @return a new instance of a DbNameIndex.
      * @throws java.sql.SQLException if an SQL error occurs.
      */
+    @Override
     protected DbNameIndex createDbNameIndex() throws SQLException {
         return new PostgreSQLNameIndex(conHelper, schemaObjectPrefix);
     }
@@ -61,13 +64,15 @@ public class PostgreSQLPersistenceManager extends DbPersistenceManager {
      */
     @Override
     protected ConnectionHelper createConnectionHelper(DataSource dataSrc) throws Exception {
-    	return new PostgreSQLConnectionHelper(dataSrc, blockOnConnectionLoss);
+        return new PostgreSQLConnectionHelper(dataSrc, blockOnConnectionLoss);
     }
 
     /**
      * returns the storage model
+     *
      * @return the storage model
      */
+    @Override
     public int getStorageModel() {
         return SM_LONGLONG_KEYS;
     }

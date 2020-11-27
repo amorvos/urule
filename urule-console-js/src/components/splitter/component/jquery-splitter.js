@@ -260,8 +260,7 @@
                         if (x > current_splitter.limit &&
                             x < current_splitter.width() - limit) {
                             current_splitter.position(x, true);
-                            current_splitter.find('.splitter_panel').
-                                trigger('splitter.resize');
+                            current_splitter.find('.splitter_panel').trigger('splitter.resize');
                             e.preventDefault();
                         }
                     } else if (current_splitter.orientation == 'horizontal') {
@@ -278,8 +277,7 @@
                         if (y > current_splitter.limit &&
                             y < current_splitter.height() - limit) {
                             current_splitter.position(y, true);
-                            current_splitter.find('.splitter_panel').
-                                trigger('splitter.resize');
+                            current_splitter.find('.splitter_panel').trigger('splitter.resize');
                             e.preventDefault();
                         }
                     }

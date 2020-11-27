@@ -1,10 +1,10 @@
-.rule-delete{
+.rule-delete {
     color: #F44336;
     vertical-align: text-top;
     cursor: pointer;
 }
 
-.rule-text-editor{
+.rule-text-editor {
     width: 260px;
     display: inline-block;
     height: 26px;
@@ -20,11 +20,11 @@
     margin-left: 5px;
 }
 
-.rule-add-property{
-    cursor:pointer;
-    padding-left:10px;
-    line-height:30px;
-    color:blue;
+.rule-add-property {
+    cursor: pointer;
+    padding-left: 10px;
+    line-height: 30px;
+    color: blue;
 }
 
 .rule-property-del {
@@ -34,31 +34,32 @@
 }
 
 .rule-add-action {
-    color:blue;
-    cursor:pointer;
-    padding-left:5px;
-    padding-bottom:5px;
+    color: blue;
+    cursor: pointer;
+    padding-left: 5px;
+    padding-bottom: 5px;
 }
 
-.rule-action{
-    padding:1px;
+.rule-action {
+    padding: 1px;
     line-height: 27px;
 }
 
-.rule-delete-action{
+.rule-delete-action {
     font-size: 10pt;
     cursor: pointer;
     color: #FF9800
 }
 
-.rule-join-node{
+.rule-join-node {
     color: #795548;
     font-size: 10pt;
     vertical-align: text-top;
     margin-left: 2px
 }
-.rule-join-container{
-    border:solid #999 1px;
-    padding:1px;
-    background:#fff;
+
+.rule-join-container {
+    border: solid #999 1px;
+    padding: 1px;
+    background: #fff;
 }

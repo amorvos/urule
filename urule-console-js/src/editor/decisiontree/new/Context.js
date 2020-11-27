@@ -6,21 +6,24 @@ import VariableNode from './VariableNode.js';
 import ActionNode from './ActionNode.js';
 import ConditionNode from './ConditionNode.js';
 
-export default class Context{
-    constructor(container,rootNode){
-        this.container=container;
+export default class Context {
+    constructor(container, rootNode) {
+        this.container = container;
         this.paper = new Raphael(container.get(0), "100%", "100%");
     }
-    newVariableNode(parentNode){
-        const newNode=new VariableNode(this,parentNode);
+
+    newVariableNode(parentNode) {
+        const newNode = new VariableNode(this, parentNode);
         return newNode;
     }
-    newActionNode(parentNode){
-        const newNode=new ActionNode(this,parentNode);
+
+    newActionNode(parentNode) {
+        const newNode = new ActionNode(this, parentNode);
         return newNode;
     }
-    newConditionNode(parentNode){
-        const newNode=new ConditionNode(this,parentNode);
+
+    newConditionNode(parentNode) {
+        const newNode = new ConditionNode(this, parentNode);
         return newNode;
     }
 };

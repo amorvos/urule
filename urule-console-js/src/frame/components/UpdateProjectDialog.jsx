@@ -1,27 +1,28 @@
 /**
  * Created by Jacky.gao on 2016/5/27.
  */
-import React,{Component,PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react';
 import ReactDOM from 'react-dom';
 import Dialog from '../../components/dialog/component/Dialog.jsx';
 import * as componentEvent from '../../components/componentEvent.js';
 import * as event from '../event.js';
 import * as action from '../action.js';
 
-export default class UpdateProjectDialog extends Component{
-    constructor(props){
+export default class UpdateProjectDialog extends Component {
+    constructor(props) {
         super(props);
-        this.state={data:{}};
+        this.state = {data: {}};
     }
-    componentDidMount(){
+
+    componentDidMount() {
         $(ReactDOM.findDOMNode(this)).bootstrapValidator({
             feedbackIcons: {
                 valid: 'glyphicon glyphicon-ok',
                 invalid: 'glyphicon glyphicon-remove',
                 validating: 'glyphicon glyphicon-refresh'
             },
-            fields:{
-                projectName:{
+            fields: {
+                projectName: {
                     validators: {
                         notEmpty: {
                             message: '项目名称不能为空'
@@ -34,40 +35,42 @@ export default class UpdateProjectDialog extends Component{
                 }
             }
         });
-        event.eventEmitter.on(event.OPEN_UPDATE_PROJECT_DIALOG,(data)=>{
+        event.eventEmitter.on(event.OPEN_UPDATE_PROJECT_DIALOG, (data) => {
             this.setState({data});
-            document.getElementsByName('projectName')[0].value=data.name;
+            document.getElementsByName('projectName')[0].value = data.name;
             $(ReactDOM.findDOMNode(this)).modal('show');
         });
-        event.eventEmitter.on(event.CLOSE_UPDATE_PROJECT_DIALOG,()=>{
+        event.eventEmitter.on(event.CLOSE_UPDATE_PROJECT_DIALOG, () => {
             $(ReactDOM.findDOMNode(this)).modal('hide');
         });
     }
-    componentWillUnmount(){
+
+    componentWillUnmount() {
         event.eventEmitter.removeAllListeners(event.OPEN_UPDATE_PROJECT_DIALOG);
         event.eventEmitter.removeAllListeners(event.CLOSE_UPDATE_PROJECT_DIALOG);
     }
-    render(){
-        const dispatch=this.props.dispatch;
-        const body=(
+
+    render() {
+        const dispatch = this.props.dispatch;
+        const body = (
             <div className="form-group">
                 <label>项目名称</label>
                 <input type="text" className="form-control" name="projectName"></input>
             </div>
         );
-        const buttons=[];
+        const buttons = [];
         buttons.push(
             {
-                name:'保存',
-                className:'btn btn-success',
-                icon:'fa fa-floppy-o',
-                click:function () {
-                    const data=this.state.data;
-                    var newProjectName=document.getElementsByName('projectName')[0].value;
+                name: '保存',
+                className: 'btn btn-success',
+                icon: 'fa fa-floppy-o',
+                click: function () {
+                    const data = this.state.data;
+                    var newProjectName = document.getElementsByName('projectName')[0].value;
                     componentEvent.eventEmitter.emit(componentEvent.SHOW_LOADING);
                     setTimeout(function () {
-                        dispatch(action.fileRename(data,newProjectName));
-                    },200);
+                        dispatch(action.fileRename(data, newProjectName));
+                    }, 200);
                 }.bind(this)
             }
         );

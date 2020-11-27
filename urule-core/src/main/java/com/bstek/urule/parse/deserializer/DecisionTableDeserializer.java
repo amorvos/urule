@@ -1,12 +1,12 @@
 /*******************************************************************************
  * Copyright 2017 Bstek
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License.  You may obtain a copy
  * of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
@@ -24,16 +24,21 @@ import com.bstek.urule.parse.table.DecisionTableParser;
  * @author Jacky.gao
  * @since 2015年1月19日
  */
-public class DecisionTableDeserializer implements Deserializer<DecisionTable>{
-	public static final String BEAN_ID="urule.decisionTableDeserializer";
-	private DecisionTableParser decisionTableParser;
-	public DecisionTable deserialize(Element root) {
-		return decisionTableParser.parse(root);
-	}
-	public boolean support(Element root) {
-		return decisionTableParser.support(root.getName());
-	}
-	public void setDecisionTableParser(DecisionTableParser decisionTableParser) {
-		this.decisionTableParser = decisionTableParser;
-	}
+public class DecisionTableDeserializer implements Deserializer<DecisionTable> {
+    public static final String BEAN_ID = "urule.decisionTableDeserializer";
+    private DecisionTableParser decisionTableParser;
+
+    @Override
+    public DecisionTable deserialize(Element root) {
+        return decisionTableParser.parse(root);
+    }
+
+    @Override
+    public boolean support(Element root) {
+        return decisionTableParser.support(root.getName());
+    }
+
+    public void setDecisionTableParser(DecisionTableParser decisionTableParser) {
+        this.decisionTableParser = decisionTableParser;
+    }
 }

@@ -1,12 +1,12 @@
 /*******************************************************************************
  * Copyright 2017 Bstek
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License.  You may obtain a copy
  * of the License at
- * 
+ *
  *   http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
@@ -32,21 +32,21 @@ import com.bstek.urule.Configure;
  * @author Jacky.gao
  * @since 2016年5月23日
  */
-public abstract class WriteJsonServletHandler extends BaseServletHandler{
-	protected void writeObjectToJson(HttpServletResponse resp,Object obj) throws ServletException, IOException{
-		resp.setHeader("Access-Control-Allow-Origin", "*");
-		resp.setContentType("text/json");
-		resp.setCharacterEncoding("UTF-8");
-		ObjectMapper mapper=new ObjectMapper();
-		mapper.setSerializationInclusion(Inclusion.NON_NULL);
-		mapper.configure(SerializationConfig.Feature.WRITE_DATES_AS_TIMESTAMPS,false);
-		mapper.setDateFormat(new SimpleDateFormat(Configure.getDateFormat()));
-		OutputStream out = resp.getOutputStream();
-		try {
-			mapper.writeValue(out, obj);
-		} finally {
-			out.flush();
-			out.close();
-		}
-	}
+public abstract class WriteJsonServletHandler extends BaseServletHandler {
+    protected void writeObjectToJson(HttpServletResponse resp, Object obj) throws ServletException, IOException {
+        resp.setHeader("Access-Control-Allow-Origin", "*");
+        resp.setContentType("text/json");
+        resp.setCharacterEncoding("UTF-8");
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.setSerializationInclusion(Inclusion.NON_NULL);
+        mapper.configure(SerializationConfig.Feature.WRITE_DATES_AS_TIMESTAMPS, false);
+        mapper.setDateFormat(new SimpleDateFormat(Configure.getDateFormat()));
+        OutputStream out = resp.getOutputStream();
+        try {
+            mapper.writeValue(out, obj);
+        } finally {
+            out.flush();
+            out.close();
+        }
+    }
 }

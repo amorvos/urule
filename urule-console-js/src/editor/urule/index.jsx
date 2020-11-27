@@ -54,9 +54,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 $(document).ready(function () {
-    const container=$('#container');
+    const container = $('#container');
     container.urule();
-    const dialogContainer=$('<div>');
+    const dialogContainer = $('<div>');
     container.append(dialogContainer);
     ReactDOM.render(
         <KnowledgeTreeDialog/>,
